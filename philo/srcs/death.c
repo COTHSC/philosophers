@@ -6,7 +6,7 @@
 /*   By: jescully <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:04:38 by jescully          #+#    #+#             */
-/*   Updated: 2022/01/14 14:32:46 by jescully         ###   ########.fr       */
+/*   Updated: 2022/01/14 17:16:40 by jescully         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	prepare_to_die(t_philo *st_philo, int nb_of_philos, pthread_t *th, int i)
 	pthread_mutex_lock(st_philo[i].die_one_at_a_time);
 	*st_philo[0].funeral_time = 1;
 	pthread_mutex_unlock(st_philo[i].die_one_at_a_time);
+	if (nb_of_philos == 1)
+		pthread_mutex_unlock(st_philo[0].l_fork);
 	bury_philosophers(nb_of_philos, th);
 	return (0);
 }

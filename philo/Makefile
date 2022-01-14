@@ -1,4 +1,4 @@
-NAME = philosophers 
+NAME = philo
 
 SRCS = ./srcs/main.c\
 	   ./srcs/birth.c\

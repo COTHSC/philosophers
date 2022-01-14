@@ -6,7 +6,7 @@
 /*   By: jescully <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 13:54:26 by jescully          #+#    #+#             */
-/*   Updated: 2022/01/14 16:13:32 by jescully         ###   ########.fr       */
+/*   Updated: 2022/01/14 17:36:26 by jescully         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ static int	check_args_value(char **argv)
 			}
 			d++;
 		}
+		if (!d)
+		{
+			printf("Error, your arguments are bad.\n");
+			return (1);
+		}
 		i++;
 	}
 	return (0);
@@ -64,6 +69,12 @@ int	*parse_args(int argc, char **argv)
 	i = 0;
 	while (i < argc - 1)
 	{
+		if (ft_atoi(argv[i + 1]) > 2147483647 || ft_strlen(argv[i + 1]) > 10 \
+				|| ft_atoi(argv[i + 1]) == 0)
+		{
+			printf("Error: your arguments are bad.\n");
+			return (NULL);
+		}
 		parsed_args[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}

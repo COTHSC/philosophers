@@ -6,7 +6,7 @@
 /*   By: jescully <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 13:44:39 by jescully          #+#    #+#             */
-/*   Updated: 2022/01/14 16:27:03 by jescully         ###   ########.fr       */
+/*   Updated: 2022/01/14 17:25:53 by jescully         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_philo {
 
 int			init_first_philo(t_philo *st_first_philo, t_philo *st_last_philo);
 int			init_philos(t_philo *st_philo, int nb_of_philos, int *args);
-void		meditate(int time_to_meditate);
+void		meditate(int time_to_meditate, t_philo *philo);
 uint64_t	get_time(void);
 int			*parse_args(int argc, char **argv);
 int			alloc_philos(t_philo **st_philo, pthread_t **thread, int nb_philos);
@@ -50,9 +50,10 @@ int			eat(t_philo *st_philo);
 void		*routine(void *s);
 int			birth_philosophers(int nb_of_philos, int *args);
 void		*routine(void *s);
-int			ft_atoi(const char *nptr);
+long int	ft_atoi(const char *nptr);
 void		*ft_calloc(size_t nmemb, size_t size);
 int			ft_isdigit(int c);
+int			ft_strlen(char *str);
 void		ft_putstr_fd(char *s, int fd);
 char		*ft_itoa(int n);
 #endif

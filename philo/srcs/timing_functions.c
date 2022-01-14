@@ -6,7 +6,7 @@
 /*   By: jescully <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 13:48:17 by jescully          #+#    #+#             */
-/*   Updated: 2022/01/14 14:35:12 by jescully         ###   ########.fr       */
+/*   Updated: 2022/01/14 17:21:35 by jescully         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ uint64_t	get_time(void)
  * for.
  * The name is mostly to stay in the theme of this project.
  */
-void	meditate(int time_to_meditate)
+void	meditate(int time_to_meditate, t_philo *st_philo)
 {
 	uint64_t		current_time;
 	uint64_t		meditate_start;
@@ -50,6 +50,8 @@ void	meditate(int time_to_meditate)
 	current_time = meditate_start;
 	while (current_time < meditate_start + time_to_meditate)
 	{
+		if (check_death(st_philo))
+			break ;
 		usleep(100);
 		current_time = get_time();
 	}

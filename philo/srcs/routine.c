@@ -6,7 +6,7 @@
 /*   By: jescully <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:14:24 by jescully          #+#    #+#             */
-/*   Updated: 2022/01/14 14:15:06 by jescully         ###   ########.fr       */
+/*   Updated: 2022/01/14 17:06:42 by jescully         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	*routine(void *s)
 		usleep(900);
 	while (42)
 	{
-		print_philo_status(st_philo, get_time(), 3);
 		if (eat(st_philo) != 0)
 			return (NULL);
 		print_philo_status(st_philo, get_time(), 2);
-		meditate(st_philo->sleep);
+		meditate(st_philo->sleep, st_philo);
+		print_philo_status(st_philo, get_time(), 3);
 	}
 	return (NULL);
 }
