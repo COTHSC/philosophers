@@ -18,17 +18,7 @@ SRCS = ./srcs/main.c\
 
 OBJS = $(SRCS:.c=.o)
 
-UNAME_S := $(shell uname -s)
-   ifeq ($(UNAME_S),Linux)
-        CC=clang
-    endif
-    ifeq ($(UNAME_S),Darwin)
-        CC= clang
-    endif
-
 CFLAGS = -Wall -Wextra -Werror
-
-INCLUDES= -I includes/
 
 all : $(NAME)
 
